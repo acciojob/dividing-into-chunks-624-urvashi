@@ -9,12 +9,11 @@ const divide = (arr, n) => {
             currentSum += arr[i];
         } else {
             result.push(SubArray);
-            SubArray = [arr[i]]; // Start new subarray with the current element
-            currentSum = arr[i]; // Reset current sum
+            SubArray = [arr[i]];
+            currentSum = arr[i];
         }
     }
 
-    // Push the last subarray if it has elements
     if (SubArray.length > 0) {
         result.push(SubArray);
     }
@@ -22,5 +21,16 @@ const divide = (arr, n) => {
     return result;
 };
 
-const n = prompt("Enter n: ");
-alert(JSON.stringify(divide(arr, n)));
+let n;
+
+do {
+    n = prompt("Enter n (or click Cancel to exit): ");
+    if (n !== null) { // Check if the user didn't cancel the prompt
+        n = Number(n); // Convert the input to a number
+        if (!isNaN(n)) { // Check if the input is a valid number
+            alert(JSON.stringify(divide(arr, n)));
+        } else {
+            alert("Please enter a valid number.");
+        }
+    }
+} while (n !== null); // Continue until the user cancels
