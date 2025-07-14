@@ -1,3 +1,5 @@
+const arr = [1, 2, 3, 4, 1, 0, 2, 2];
+
 const divide = (arr, n) => {
     const result = [];
     let SubArray = [];
@@ -28,7 +30,8 @@ do {
     if (n !== null) { // Check if the user didn't cancel the prompt
         n = Number(n); // Convert the input to a number
         if (!isNaN(n)) { // Check if the input is a valid number
-            alert(JSON.stringify(divide(arr, n)));
+            const output = divide(arr, n); // Call the divide function
+            alert("Output: " + JSON.stringify(output)); // Show the output in an alert
         } else {
             alert("Please enter a valid number.");
         }
